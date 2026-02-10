@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    viewport:
+    - sorgt dafür, dass die Seite auf dem Handy richtig skaliert
+    - ohne viewport wirkt die Seite auf Mobile oft "zu groß"
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Lernseite – Einfach & Zentriert</title>
+
+  <!--
+    CSS (Design):
+    - Zentriert den Inhalt (flex + align-items)
+    - Max-Breite, damit es in der Mitte wie ein "Kasten" aussieht
+    - Einfache Farben (Anfänger-Style, aber sauber)
+  -->
+  <style>
+    /* Grundlayout der Seite */
+    body {
+      font-family: Arial, sans-serif;  /* Schriftart */
+      background: #f7f9fc;             /* Seiten-Hintergrund */
+      margin: 0;                        /* Standard-Abstände entfernen */
+      padding: 20px;                    /* Abstand zum Rand */
+
+      display: flex;                    /* Flexbox aktivieren */
+      flex-direction: column;           /* Elemente untereinander */
+      align-items: center;              /* ALLES horizontal zentrieren */
+    }
+
+    /* Kasten-Layout für Header/Section/Footer */
+    header, footer, section {
+      width: 92%;
+      max-width: 760px;                 /* Seite bleibt schön schmal */
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    h1, h2 { margin-top: 0; }
+
+    /* Box für Beispiele (mit gestricheltem Rahmen) */
+    .box {
+      background: #fafafa;
+      border: 1px dashed #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    /* Buttons (eigentlich Links, nur wie Buttons gestylt) */
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #777;
+      border-radius: 8px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      margin-right: 6px;
+    }
+    .btn:hover { background: #eee; }
+
+    /* MARKIERUNG: <mark> standardmäßig gelb -> wir machen es pastelgrün */
+    mark {
+      background: #bfe6c8; /* Pastellgrün */
+      color: #111;
+      padding: 0 3px;
+      border-radius: 4px;
+    }
+
+    /*
+      Bild-Layout:
+      - img-box: Text + Bild nebeneinander, damit nichts "überlappt"
+      - gap: Abstand zwischen Text und Bild
+    */
+    .img-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Bildgröße kontrollieren, damit es nicht riesig wird */
+    .img-small {
+      width: 180px;
+      height: auto; /* Proportion bleibt gleich, Bild wird nicht verzerrt */
+      display: block;
+    }
+
+    /* Tabellen-Design */
+    table {
+      border-collapse: collapse;  /* Rahmen werden zusammengeführt */
+      width: 100%;
+      max-width: 520px;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 6px;
+      text-align: left;
+    }
+    th { background: #eee; }
+
+    /* Formulare */
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      max-width: 420px;
+      padding: 7px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+    }
+
+    .small { font-size: 13px; color: #444; }
+
+    /*
+      OPTIONAL (falls du später Bilder links/rechts/zentriert brauchst):
+      .img-left  { float: left;  margin-right: 15px; }
+      .img-right { float: right; margin-left:  15px; }
+      .img-center{ display:block; margin: 0 auto; }
+    */
+  </style>
+</head>
+
+<body>
+
+  <!--
+    HEADER:
+    - id="top" ist eine Sprungmarke (Anker)
+    - Mit href="#top" kann man nach oben springen
+  -->
+  <header id="top">
+    <h1>HTML Lernseite (für Anfänger)</h1>
+    <p>Erklärungen + Beispiele, damit man es im Browser direkt sieht.</p>
+
+    <!--
+      Buttons sind Links:
+      - href="#footer" springt zum Element mit id="footer"
+      - target="_blank" öffnet neuen Tab
+      - rel="noopener" ist sicherer bei target="_blank"
+    -->
+    <a class="btn" href="#footer">Zum Footer ↓</a>
+    <a class="btn" href="https://www.google.com" target="_blank" rel="noopener">Google öffnen</a>
+
+    <p class="small">
+      Erklärung: <b>target="_blank"</b> öffnet den Link in einem neuen Tab.<br>
+      <b>rel="noopener"</b> verhindert, dass die neue Seite Zugriff auf die ursprüngliche Seite bekommt.
+    </p>
+  </header>
+
+  <section>
+    <h2>1) Überschriften & Absätze</h2>
+    <p>
+      Überschriften strukturieren eine Seite: <b>&lt;h1&gt;</b> bis <b>&lt;h6&gt;</b>.<br>
+      Absätze schreibt man mit <b>&lt;p&gt;</b>.
+    </p>
+
+    <div class="box">
+      <h3>Beispiel</h3>
+      <h4>Unterpunkt (h4)</h4>
+      <p>Das ist ein Absatz (p). Hier kann normaler Text stehen.</p>
+    </div>
+
+    <p class="small">
+      Tipp: Normalerweise benutzt man nur <b>ein</b> &lt;h1&gt; pro Seite (Haupttitel).
+    </p>
+  </section>
+
+  <section>
+    <h2>2) Textformatierung</h2>
+    <p>Diese Tags ändern die Darstellung von Text:</p>
+
+    <div class="box">
+      <p>
+        <b>&lt;b&gt;</b> = <b>fett</b> (nur optisch)<br>
+        <b>&lt;i&gt;</b> = <i>kursiv</i> (nur optisch)<br>
+        <b>&lt;u&gt;</b> = <u>unterstrichen</u><br>
+        <b>&lt;mark&gt;</b> = <mark>markiert</mark><br>
+        <b>&lt;small&gt;</b> = <small>kleiner Text</small><br>
+        <b>&lt;sup&gt;</b> = hoch: 10<sup>2</sup><br>
+        <b>&lt;sub&gt;</b> = tief: H<sub>2</sub>O
+      </p>
+    </div>
+
+    <p class="small">
+      Semantik (besser für Bedeutung):<br>
+      <b>&lt;strong&gt;</b> = wichtig (Bedeutung), <b>&lt;em&gt;</b> = betont (Bedeutung).
+    </p>
+  </section>
+
+  <section>
+    <h2>3) Bild</h2>
+    <p>
+      Bilder bindet man mit <b>&lt;img&gt;</b> ein.<br>
+      <b>src</b> = Pfad/URL zur Datei,<br>
+      <b>alt</b> = Beschreibung (wichtig für Barrierefreiheit),<br>
+      <b>loading="lazy"</b> = Bild lädt erst später (wenn es sichtbar wird).
+    </p>
+
+    <div class="box img-box">
+      <!--
+        Ersetze "example.jpg" mit deinem Dateinamen.
+        Lege die Bilddatei in den gleichen Ordner wie diese HTML-Datei.
+        width/height kann man auch in HTML setzen, aber wir nutzen hier CSS (.img-small).
+      -->
+      <img class="img-small" src="example.jpg" alt="Img" loading="lazy">
+
+      <p class="small">
+        Wenn das Bild nicht erscheint: Name/Ordner prüfen (Groß-/Kleinschreibung!).<br>
+        Tipp: Du kannst die Bildgröße über CSS (.img-small) ändern.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>4) Listen</h2>
+    <p>
+      Es gibt drei wichtige Elemente:<br>
+      <b>&lt;ul&gt;</b> = ungeordnete Liste (Punkte)<br>
+      <b>&lt;ol&gt;</b> = geordnete Liste (Nummern)<br>
+      <b>&lt;li&gt;</b> = ein Listeneintrag
+    </p>
+
+    <div class="box">
+      <h3>ul</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+
+      <h3>ol</h3>
+      <ol>
+        <li>Planen</li>
+        <li>Schreiben</li>
+        <li>Testen</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>5) Tabelle</h2>
+    <p>
+      Tabellen sind für Daten in Zeilen/Spalten.<br>
+      <b>&lt;tr&gt;</b> = Tabellenzeile,<br>
+      <b>&lt;th&gt;</b> = Kopfzelle (Überschrift),<br>
+      <b>&lt;td&gt;</b> = Datenzelle.
+    </p>
+
+    <div class="box">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Nachname</th>
+        </tr>
+        <tr>
+          <td>Míriam</td>
+          <td>Domínguez Martínez</td>
+        </tr>
+        <tr>
+          <td>Sayara</td>
+          <td>Domínguez Martínez</td>
+        </tr>
+      </table>
+
+      <p class="small">
+        Hinweis: Tabellen nutzt man für Daten — nicht für Seitenlayout.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>6) Video</h2>
+    <p>
+      <b>&lt;video&gt;</b> spielt Videos ab.<br>
+      <b>controls</b> = Steuerelemente anzeigen (Play/Pause),<br>
+      <b>muted</b> = stumm starten,<br>
+      <b>width</b> = Breite des Players.
+    </p>
+
+    <div class="box">
+      <video controls muted width="300">
+        <!-- source: Quelle + Dateiformat -->
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Dein Browser unterstützt das Video-Tag nicht.
+      </video>
+    </div>
+
+    <p class="small">
+      Tipp: <b>autoplay</b> wird oft blockiert, wenn <b>muted</b> nicht gesetzt ist.
+    </p>
+  </section>
+
+  <section>
+    <h2>7) Audio</h2>
+    <p>
+      <b>&lt;audio&gt;</b> spielt Musik/Sound ab.<br>
+      <b>controls</b> = Steuerelemente anzeigen,<br>
+      <b>source</b> = Quelle + Format.
+    </p>
+
+    <div class="box">
+      <audio controls>
+        <source src="https://storage01.dbe.academy/mp3.mp3" type="audio/mpeg">
+        Dein Browser unterstützt das Audio-Tag nicht.
+      </audio>
+    </div>
+
+    <p class="small">
+      Tipp: Du kannst mehrere <b>&lt;source&gt;</b> angeben (z. B. mp3 und ogg).
+    </p>
+  </section>
+
+  <section id="form">
+    <h2>8) Formular (Form) + Label</h2>
+    <p>
+      Formulare sammeln Daten.<br>
+      <b>&lt;form&gt;</b> = Formular-Container,<br>
+      <b>&lt;label&gt;</b> = Beschriftung,<br>
+      <b>&lt;input&gt;</b> / <b>&lt;select&gt;</b> / <b>&lt;textarea&gt;</b> = Eingabefelder.
+    </p>
+
+    <div class="box">
+      <!--
+        action="#" = Ziel-URL (hier nur Demo)
+        method="get" = Werte werden an die URL angehängt (gut zum Testen)
+      -->
+      <form action="#" method="get">
+        <!-- label for="name" passt zu input id="name" -->
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="z. B. Míriam" required>
+
+        <p class="small"><b>required</b> = Feld muss ausgefüllt werden.</p>
+
+        <label for="email">E-Mail</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com">
+
+        <p class="small"><b>type="email"</b> prüft grob das E-Mail-Format.</p>
+
+        <label for="topic">Thema</label>
+        <select id="topic" name="topic">
+          <!-- value ist der Wert, der gesendet wird -->
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="js">JavaScript</option>
+        </select>
+
+        <label for="msg">Nachricht</label>
+        <textarea id="msg" name="msg" rows="3" placeholder="Dein Text..."></textarea>
+
+        <p style="margin-top:10px;">
+          <!-- submit sendet, reset löscht -->
+          <button class="btn" type="submit">Senden</button>
+          <button class="btn" type="reset">Zurücksetzen</button>
+        </p>
+
+        <p class="small">
+          <b>method="get"</b> = Daten in der URL (Tests).<br>
+          <b>method="post"</b> = Daten im Request-Body (typisch bei echten Formularen).
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>9) Details/summary (aufklappbar)</h2>
+    <p>
+      <b>&lt;details&gt;</b> ist ein aufklappbarer Bereich, ohne JavaScript.<br>
+      <b>&lt;summary&gt;</b> ist der klickbare Titel.
+    </p>
+
+    <div class="box">
+      <details>
+        <summary>Klick mich (summary)</summary>
+        <p>Jetzt siehst du den Inhalt in details.</p>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>10) Progress (Fortschritt)</h2>
+    <p>
+      <b>&lt;progress&gt;</b> zeigt einen Fortschrittsbalken.<br>
+      <b>value</b> = aktueller Wert, <b>max</b> = Maximum.
+    </p>
+
+    <div class="box">
+      <progress value="70" max="100">70%</progress>
+      <p class="small">Beispiel: 70 von 100</p>
+    </div>
+  </section>
+
+  <!--
+    FOOTER:
+    - id="footer" ist Sprungmarke für "Zum Footer"
+    - Link nach oben nutzt href="#top"
+  -->
+  <footer id="footer">
+    <p>
+      <a class="btn" href="#top">Nach oben ↑</a>
+      <a class="btn" href="#form">Zum Formular</a>
+    </p>
+    <p>© 2026 – Míriam Domínguez Martínez</p>
+  </footer>
+
+</body>
+</html>
