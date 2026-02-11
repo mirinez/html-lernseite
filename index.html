@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!--
     viewport:
     - sorgt dafür, dass die Seite auf dem Handy richtig skaliert
@@ -172,7 +173,7 @@
   </header>
 
   <section>
-    <h2>1) Überschriften & Absätze</h2>
+    <h2>1) Überschriften & Absätze:</h2>
     <p>
       Überschriften strukturieren eine Seite: <b>&lt;h1&gt;</b> bis <b>&lt;h6&gt;</b>.<br>
       Absätze schreibt man mit <b>&lt;p&gt;</b>.
@@ -190,7 +191,7 @@
   </section>
 
   <section>
-    <h2>2) Textformatierung</h2>
+    <h2>2) Textformatierung:</h2>
     <p>Diese Tags ändern die Darstellung von Text:</p>
 
     <div class="box">
@@ -212,7 +213,7 @@
   </section>
 
   <section>
-    <h2>3) Bild</h2>
+    <h2>3) Bild:</h2>
     <p>
       Bilder bindet man mit <b>&lt;img&gt;</b> ein.<br>
       <b>src</b> = Pfad/URL zur Datei,<br>
@@ -236,7 +237,7 @@
   </section>
 
   <section>
-    <h2>4) Listen</h2>
+    <h2>4) Listen:</h2>
     <p>
       Es gibt drei wichtige Elemente:<br>
       <b>&lt;ul&gt;</b> = ungeordnete Liste (Punkte)<br>
@@ -262,7 +263,7 @@
   </section>
 
   <section>
-    <h2>5) Tabelle</h2>
+    <h2>5) Tabelle:</h2>
     <p>
       Tabellen sind für Daten in Zeilen/Spalten.<br>
       <b>&lt;tr&gt;</b> = Tabellenzeile,<br>
@@ -293,7 +294,7 @@
   </section>
 
   <section>
-    <h2>6) Video</h2>
+    <h2>6) Video:</h2>
     <p>
       <b>&lt;video&gt;</b> spielt Videos ab.<br>
       <b>controls</b> = Steuerelemente anzeigen (Play/Pause),<br>
@@ -315,7 +316,7 @@
   </section>
 
   <section>
-    <h2>7) Audio</h2>
+    <h2>7) Audio:</h2>
     <p>
       <b>&lt;audio&gt;</b> spielt Musik/Sound ab.<br>
       <b>controls</b> = Steuerelemente anzeigen,<br>
@@ -335,7 +336,7 @@
   </section>
 
   <section id="form">
-    <h2>8) Formular (Form) + Label</h2>
+    <h2>8) Formular (Form) + Label:</h2>
     <p>
       Formulare sammeln Daten.<br>
       <b>&lt;form&gt;</b> = Formular-Container,<br>
@@ -386,7 +387,7 @@
   </section>
 
   <section>
-    <h2>9) Details/summary (aufklappbar)</h2>
+    <h2>9) Details/summary (aufklappbar):</h2>
     <p>
       <b>&lt;details&gt;</b> ist ein aufklappbarer Bereich, ohne JavaScript.<br>
       <b>&lt;summary&gt;</b> ist der klickbare Titel.
@@ -401,7 +402,7 @@
   </section>
 
   <section>
-    <h2>10) Progress (Fortschritt)</h2>
+    <h2>10) Progress (Fortschritt):</h2>
     <p>
       <b>&lt;progress&gt;</b> zeigt einen Fortschrittsbalken.<br>
       <b>value</b> = aktueller Wert, <b>max</b> = Maximum.
@@ -414,7 +415,7 @@
   </section>
 
   <section>
-    <h2>11) Favicon (Browser-Icon)</h2>
+    <h2>11) Favicon (Browser-Icon):</h2>
     <p>
       Das <b>Favicon</b> ist das kleine Symbol, das im Browser-Tab angezeigt wird.
       Es wird im <b>&lt;head&gt;</b>-Bereich mit dem Element <b>&lt;link&gt;</b> eingebunden.
@@ -461,6 +462,65 @@
         oder der korrekte Pfad muss angegeben werden.
       </p>
     </div>
+  </section>
+
+  <section>
+    <h2>12) Das "ingframe" Element - Externe Inhalte nahtlos einbetten:</h2>
+    <p>
+      Ein "iframe" ermöglicht es, eine andere Webseite oder ein Dokument innerhalb der aktuellen Seite anzuzeigen. 
+      Es ist wie ein Fenster zu einer anderen Seite, das nahtlos in dein Layout integriert werden kann. 
+      Mit dem "iframe"-Element kannst du beispielsweise eine Karte, ein Video oder sogar eine andere Webseite direkt auf deiner Seite einbetten, 
+      ohne dass der Benutzer die Seite verlassen muss.
+    </p>
+    <div class="box">
+      <h3>Beispiel: Einbetten einer Google Map</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.9414418968!2d13.144554658203125!3d52.50676119181644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851e9c9b8b6b%3A0x421cbbd7e5c8a0b!2sBerlin%2C%20Germany!5e0!3m2!1sen!2sus!4v1700000000000" 
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p class="small">
+        In diesem Beispiel wird eine Google Map von Berlin eingebettet. 
+        Du kannst die "src"-URL anpassen, um andere Inhalte einzubetten, z.B. YouTube-Videos oder andere Webseiten.
+      </p>
+    </div>
+    <p>
+      Wichtige Attribute:
+      <ul>
+        <li><b>src</b>: Die URL der Seite oder des Dokuments, das eingebettet werden soll.</li>
+        <li><b>width</b> und <b>height</b>: Bestimmen die Größe des iframes.</li>
+        <li><b>style="border:0;"</b>: Entfernt den Rahmen um das iframe (optional).</li>
+        <li><b>allowfullscreen</b>: Erlaubt das Vollbildmodus (z.B. für Videos).</li>
+        <li><b>loading="lazy"</b>: Verzögert das Laden des iframes, bis es sichtbar ist (gut für Performance).</li>
+        <li><b>referrerpolicy</b>: Steuert, welche Referrer-Informationen gesendet werden (Sicherheit).</li>
+      </ul>
+    </p>
+    <p>
+      Tipp: Achte darauf, dass die eingebettete Seite das Einbetten erlaubt (manche Seiten blockieren dies aus Sicherheitsgründen).
+    </p>
+    <p>
+      Jetzt provieren wir mit ein Youtube Video:
+    </p>
+    <div class="box">
+      <h3>Beispiel: Einbetten eines YouTube-Videos</h3>
+      <iframe 
+        width="300" 
+        height="200" 
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID?start=0&end=20"
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+      <p class="small">
+        In diesem Beispiel wird ein YouTube-Video eingebettet. Du kannst die "src"-URL anpassen, um andere Videos einzubetten.
+      </p>
+    </div>
+
   </section>
 
   <!--
