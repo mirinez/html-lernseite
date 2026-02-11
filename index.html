@@ -412,7 +412,57 @@
       <p class="small">Beispiel: 70 von 100</p>
     </div>
   </section>
+  
+  <section>
+    <h2>11) Favicon (Browser-Icon)</h2>
+    <p>
+      Das <b>Favicon</b> ist das kleine Symbol, das im Browser-Tab angezeigt wird.
+      Es wird im <b>&lt;head&gt;</b>-Bereich mit dem Element <b>&lt;link&gt;</b> eingebunden.
+    </p>
 
+    <div class="box">
+      <h3>So wurde es in dieser Seite eingebunden:</h3>
+
+      <p>
+        Im &lt;head&gt;-Bereich:
+      </p>
+
+      <pre style="background:#f4f4f4; padding:8px; border-radius:8px; overflow:auto;">
+      &lt;link rel="icon" type="favicon" href="favicon.jpg"&gt;
+      </pre>
+
+      <p class="small">
+        ⚠ Hinweis: <b>type="favicon"</b> ist kein offizieller Standard.
+        Viele Browser akzeptieren es trotzdem, korrekt wäre jedoch:
+      </p>
+
+      <pre style="background:#f4f4f4; padding:8px; border-radius:8px; overflow:auto;">
+      &lt;link rel="icon" type="image/jpeg" href="favicon.jpg"&gt;
+      </pre>
+
+      <p>
+        Wenn die Datei ein PNG ist:
+      </p>
+
+      <pre style="background:#f4f4f4; padding:8px; border-radius:8px; overflow:auto;">
+      &lt;link rel="icon" type="image/png" href="favicon.png"&gt;
+      </pre>
+
+      <p>
+        Am professionellsten ist meistens das Format <b>.ico</b>:
+      </p>
+
+      <pre style="background:#f4f4f4; padding:8px; border-radius:8px; overflow:auto;">
+      &lt;link rel="icon" href="favicon.ico"&gt;
+      </pre>
+
+      <p class="small">
+        Die Datei sollte sich im selben Ordner wie die HTML-Datei befinden
+        oder der korrekte Pfad muss angegeben werden.
+      </p>
+    </div>
+  </section>
+  
   <!--
     FOOTER:
     - id="footer" ist Sprungmarke für "Zum Footer"
@@ -428,3 +478,4 @@
 
 </body>
 </html>
+
